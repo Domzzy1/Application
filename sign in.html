@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #2c3e50, #4ca1af); /* Darker Gradient Background */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Logo styling */
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 50px;  /* Adjust the size of the logo */
+            height: auto;
+        }
+
+        .form-header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .form-body {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding-left: 35px; /* Make room for the icon */
+        }
+
+        /* Icon Style */
+        .icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .btn {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .form-footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        a {
+            color: #4caf50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Input focus style */
+        input:focus {
+            border-color: #4caf50;
+            outline: none;
+        }
+
+        /* Hover effect on input */
+        input:hover {
+            border-color: #ccc;
+        }
+
+        .form-group input:focus + .icon {
+            color: #4caf50; /* Icon turns green when input is focused */
+        }
+
+        .form-group input:valid {
+            border-color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="form-header">
+            <h2>Sign Up</h2>
+        </div>
+        <div class="form-body">
+            <form id="signupForm" onsubmit="return signup(event)">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" minlength="5" maxlength="50" required>
+                    <i class="icon">&#128100;</i> <!-- User icon -->
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" maxlength="50" required>
+                    <i class="icon">&#9993;</i> <!-- Email icon -->
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" minlength="5" maxlength="20" required>
+                    <i class="icon">&#128100;</i> <!-- User icon -->
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" minlength="8" maxlength="20" required>
+                    <i class="icon">&#128274;</i> <!-- Lock icon -->
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-footer">
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        function signup(event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Get the form element
+            const form = document.getElementById('signupForm');
+
+            // Check if the form is valid
+            if (form.checkValidity()) {
+                alert('Signup successful! Redirecting to the service page.');
+                window.location.href = 'services.html';
+            } else {
+                alert('Please fill in all fields correctly before submitting.');
+            }
+        }
+    </script>
+
+</body>
+</html>

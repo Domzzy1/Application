@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Nearby Gas Stations</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find Nearby Gas Stations</h1>
+    <div id="map"></div>
+
+    <script>
+        // Initialize the map
+        function initMap() {
+            // Default location (e.g., city center)
+            const center = { lat: 40.7128, lng: -74.0060 };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: center,
+                zoom: 15,
+            });
+
+            // Create a PlacesService instance
+            const placesService = new google.maps.places.PlacesService(map);
+
+            // Search for nearby gas stations
+            const request = {
+                location: center,
+                radius: 5000, // 5km radius
+                type: "gas_station"
+            };
+
+            placesService.nearbySearch(request, (results, status) => {
+                if (status === google.maps.places.PlacesServiceStatus.OK) {
+                    for (let i = 0; i < results.length; i++) {
+                        createMarker(results[i]);
+                    }
+                }
+            });
+        }
+
+        // Create markers for each gas station
+        function createMarker(place) {
+            const marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location,
+                title: place.name,
+            });
+
+            const infowindow = new google.maps.InfoWindow({
+                content: place.name,
+            });
+
+            marker.addListener("click", () => {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
+
+    <script>
+        // Load the map when the page is loaded
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
+     <footer>
+        <a href="FUEL.HTML">
+            <img src="home.jpeg" alt="Home Icon" class="home-icon">
+        </a>
+    </footer>
+</body>
+</html>

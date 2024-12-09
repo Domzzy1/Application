@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Service - On-Demand Services App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #map {
+            height: 300px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .call-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .call-image {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+        #notificationButton {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        #notificationContainer {
+            display: none;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #closeNotification {
+            color: #3498db;
+            float: right;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Taxi Service</h1>
+    </header>
+    <main>
+        <div class="container">
+            <h2>What you need for Taxi Service</h2>
+            <p>Need a ride? Our taxi service is ready to take you wherever you need to go. Here's what you need to know:</p>
+
+            <ul>
+                <li>Hassle-free transportation whenever you need it.</li>
+                <li>Safe and reliable drivers.</li>
+                <li>Track your taxi in real-time through our app.</li>
+                <li>Transparent pricing with no hidden fees.</li>
+                <li>We're available 24/7 for your convenience.</li>
+            </ul>
+
+            <p>Contact us at <strong>(3076235)</strong> to book your ride.</p>
+
+            <div id="map"></div>
+
+            <!-- "Call" section -->
+            <div class="call-section">
+                <p>If you need a taxi, tap the image below to call us:</p>
+                <img src="call.jpeg" alt="Call Taxi" class="call-image" onclick="callTaxi()">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <a href="services.html">
+            <img src="home.jpeg" alt="Home Icon" class="home-icon">
+        </a>
+    </footer>
+    
+
+    <script>
+        function callTaxi() {
+            // Use the tel URI scheme to initiate a phone call
+            window.location.href = 'tel:(3076235)';
+        }
+
+        // Get user's location and display it on a map
+        function showUserLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+
+                    // Create a map and display the user's location
+                    const map = new google.maps.Map(document.getElementById('map'), {
+                        center: { lat: latitude, lng: longitude },
+                        zoom: 15
+                    });
+
+                    // Add a marker for the user's location
+                    const marker = new google.maps.Marker({
+                        position: { lat: latitude, lng: longitude },
+                        map: map,
+                        title: 'Your Location'
+                    });
+                });
+            } else {
+                console.error('Geolocation is not supported by this browser.');
+            }
+        }
+
+        // Call the function to show user location when the page loads
+        window.onload = showUserLocation;
+    </script>
+
+    <!-- Include the Google Maps API script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap" async defer></script>
+</body>
+</html>

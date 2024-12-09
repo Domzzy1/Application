@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Service - On-Demand Services App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .medicine-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .buy-image {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Medicine Service</h1>
+    </header>
+    <main>
+        <div class="container">
+            <h2>What you need for Medicine Service</h2>
+            <p>Running out of essential medicines? We've got you covered. Here's what you need to know:</p>
+
+            <ul>
+                <li>Order your medicines online and have them delivered to your doorstep.</li>
+                <li>Wide range of medicines available, including prescription and over-the-counter drugs.</li>
+                <li>Easy online ordering process with secure payment options.</li>
+                <li>Our pharmacy partners ensure the quality and authenticity of the medicines.</li>
+                <li>24/7 customer support for any queries or concerns.</li>
+            </ul>
+
+            <div class="medicine-section">
+                <p>If you need medicines, tap the image below to place your order:</p>
+                <img src="call.jpeg" alt="Buy Medicine" class="buy-image" onclick="buyMedicine()">
+            </div>
+        </div>
+    </main>
+    <footer>
+        <a href="services.html">
+            <img src="home.jpeg" alt="Home Icon" class="home-icon">
+        </a>
+    </footer>
+
+    <script>
+        function buyMedicine() {
+            // Implement logic to navigate to the medicine ordering page or link to your medicine service.
+            alert('You are being redirected to the medicine ordering page.');
+            // window.location.href = 'your_medicine_ordering_page.html';
+        }
+    </script>
+</body>
+</html>

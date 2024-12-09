@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <link rel="stylesheet" href="styles.css">
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        #hotels {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .hotel {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: left;
+            position: relative; /* Position relative for the call icon */
+        }
+
+        .hotel img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .hotel p {
+            margin: 5px 0;
+        }
+
+       /* Lightbox Styles */
+#lightboxOverlay {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+#lightbox {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+#lightbox img {
+    max-height: 80vh;
+    max-width: 80vw;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.lb-prev,
+.lb-next {
+    background-color: rgba(52, 152, 219, 0.8) !important;
+    color: #fff !important;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.lb-prev:hover,
+.lb-next:hover {
+    background-color: #3498db !important;
+}
+
+.lb-close {
+    color: #fff !important;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.lb-dataContainer {
+    background-color: transparent !important;
+}
+
+.lb-data {
+    color: #fff !important;
+    font-size: 18px;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hotel Service</h1>
+    </header>
+
+    <section>
+        <h2>Find a Hotel</h2>
+        <div id="hotels">
+            <div class="hotel">
+                <a href="tamala.jpeg" data-lightbox="l" data-title="Hotel 1">
+                    <img src="tamala3.jpeg" alt="Hotel 1">
+                </a>
+                <p>Hotel Name: Hotel 1</p>
+               
+            </div>
+            <div class="hotel">
+                <a href="tamala2.jpeg" data-lightbox="hotel-gallery" data-title="Hotel 2">
+                    <img src="sheraton2.jpeg" alt="Hotel 2">
+                </a>
+                <p>Hotel Name: Hotel 2</p>
+                <p>Location: City, Country</p>
+            </div>
+            <!-- Add more hotels as needed -->
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <footer>
+        <a href="services.html">
+            <img src="home.jpeg" alt="Home Icon" class="home-icon">
+        </a>
+    </footer>
+</body>
+</html>
